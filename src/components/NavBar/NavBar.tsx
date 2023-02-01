@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <header>
       <div id="brand">
-        <a href="/">MyCompany</a>
+        <a href="/">PlayStation Store</a>
       </div>
       <nav>
         <ul>

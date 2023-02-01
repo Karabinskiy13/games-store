@@ -1,16 +1,14 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const contentfulManagement = require('contentful-management');
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 
 module.exports = function () {
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: 'CFPAT-9dKWzcOTDk_4RaQS4e0HslYq73KTdTSOKrb7wwADtJ8'
+    accessToken: 'CFPAT-KSqR9yCpjH1v3PUnEh_dZjt923kWoPlyg7gTj6KKZf8'
   });
 
-  return contentfulClient
-    .getSpace(process.env.CONTENTFUL_SPACE_ID)
-    .then((space) => space.getEnvironment('master'));
+  return contentfulClient.getSpace('jds8b94xttqh').then((space) => space.getEnvironment('master'));
 };
