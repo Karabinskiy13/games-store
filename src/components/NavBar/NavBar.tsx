@@ -14,13 +14,13 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="/products">Search</a>
+            <a href="/search">Search</a>
           </li>
           <li>
-            <a href="/about">Backet</a>
+            <a href="/card">Backet</a>
           </li>
         </ul>
       </nav>
@@ -33,10 +33,10 @@ const NavBar = () => {
             <a href="/home">Home</a>
           </li>
           <li>
-            <a href="/products">Search</a>
+            <a href="/search">Search</a>
           </li>
           <li>
-            <a href="/about">Backet</a>
+            <a href="/card">Backet</a>
           </li>
         </ul>
       </div>

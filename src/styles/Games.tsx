@@ -18,7 +18,7 @@ export const GamesContent = styled.div`
 
 export const GameItem = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column
   justify-content: center;
   align-items: center;
 `;
