@@ -5,7 +5,7 @@ export interface IGamesFields {
   quantity?: number;
   name?: string | undefined;
   description?: string | undefined;
-  price?: string | undefined;
+  price?: number;
   poster?: Asset | undefined;
   showMore?: string | undefined;
   fullDescription?: string | undefined;

@@ -5,8 +5,8 @@ import { IGames } from '../contentful';
 export type CartSlice = {
   cart: IGames[];
   addToCart: (product: IGames) => void;
-  removeFromCart: (productId: string) => void;
-  updateQuantity: (productId: string, action: 'increase' | 'decrease') => void;
+  removeFromCart: (productName: string | undefined) => void;
+  updateQuantity: (productName: string | undefined, action: 'increase' | 'decrease') => void;
   showCart: boolean;
   toggleCart: () => void;
 };
@@ -25,11 +25,12 @@ export const createCartSlice: StateCreator<CartSlice> = (set, get) => ({
     set({ cart });
     console.log(cart);
   },
-  removeFromCart: (productName: string) => {
+  removeFromCart: (productName: string | undefined) => {
     set({ cart: get().cart.filter((el) => el.fields.name !== productName) });
   },
-  updateQuantity: (productName: string, action: 'increase' | 'decrease') => {
+  updateQuantity: (productName: string | undefined, action: 'increase' | 'decrease') => {
     const cart = get().cart;
+
     const findProduct = cart.find((el) => el.fields.name === productName);
     if (findProduct) {
       if (action === 'decrease') {
