@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { Bars, Header, HumburgerIcon, List, Logo, MobileList } from '../../styles/NavBar';
 
 const NavBar = () => {
   const [isActive, setActive] = useState(false);
@@ -7,40 +9,40 @@ const NavBar = () => {
     setActive(!isActive);
   };
   return (
-    <header>
-      <div id="brand">
-        <a href="/">PlayStation Store</a>
-      </div>
+    <Header>
+      <Logo>
+        <Link href="/">PlayStation Store</Link>
+      </Logo>
       <nav>
-        <ul>
+        <List>
           <li>
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="/search">Search</a>
+            <Link href="/search">Search</Link>
           </li>
           <li>
-            <a href="/card">Backet</a>
+            <Link href="/card">Backet</Link>
           </li>
-        </ul>
+        </List>
       </nav>
-      <div id="hamburger-icon" className={isActive ? 'open' : 'close'} onClick={handleToggle}>
-        <div className="bar1"></div>
-        <div className="bar2"></div>
-        <div className="bar3"></div>
-        <ul className="mobile-menu">
+      <HumburgerIcon className={isActive ? 'open' : 'close'} onClick={handleToggle}>
+        <Bars className="bar1"></Bars>
+        <Bars className="bar2"></Bars>
+        <Bars className="bar3"></Bars>
+        <MobileList className="mobileMenu">
           <li>
-            <a href="/home">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="/search">Search</a>
+            <Link href="/search">Search</Link>
           </li>
           <li>
-            <a href="/card">Backet</a>
+            <Link href="/card">Backet</Link>
           </li>
-        </ul>
-      </div>
-    </header>
+        </MobileList>
+      </HumburgerIcon>
+    </Header>
   );
 };
 
