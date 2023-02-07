@@ -1,8 +1,9 @@
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+
 import { Games } from '../../../types';
-import { GameItem } from '../../styles/Games';
+import { Button, GameItem } from '../../styles/Games';
 
 const Game = ({ game }: Games) => {
   const posterLink = `http://${game.fields.poster?.fields.file.url}`;
@@ -17,7 +18,7 @@ const Game = ({ game }: Games) => {
       <div>{game.fields.price}UAH</div>
       <div>Release Date: {game.fields.releaseDate}</div>
       <Link href={showDescription}>
-        <button className="button">{game.fields.showFull}</button>
+        <Button className="button">{game.fields.showFull}</Button>
       </Link>
     </GameItem>
   );

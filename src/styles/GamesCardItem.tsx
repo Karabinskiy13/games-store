@@ -1,7 +1,28 @@
 import styled from 'styled-components';
 
+export const CardItemTitle = styled.div`
+  font-size: 15px;
+`;
+
+export const MainWrapper = styled.div`
+  padding: 30px;
+`;
+
+export const CartItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Cross = styled.div`
+  max-width: 350px;
+  display: flex;
+  justify-content: end;
+`;
+
 export const Counter = styled.div`
-  width: 150px;
+  max-width: 150px;
   margin: auto;
   display: flex;
   align-items: center;

@@ -1,10 +1,13 @@
-import { GetStaticProps } from 'next';
 import React, { useEffect, useMemo, useState } from 'react';
+import { GetStaticProps } from 'next';
 import debounce from 'lodash.debounce';
+
 import client from '../../../cms';
 import { IGames, IGamesFields } from '../../../contentful';
 import Game from '../../components/Game/Game';
+
 import { SearchStyle } from '../../styles/Search';
+import { GamesContent } from '../../styles/Games';
 
 const Search = ({ games }: { games: IGames[] }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,7 +30,9 @@ const Search = ({ games }: { games: IGames[] }) => {
   return (
     <div>
       <SearchStyle type="text" placeholder="Search" onChange={debouncedResults} />
-      {filtredGames && filtredGames.map((game) => <Game key={game.fields.name} game={game} />)}
+      <GamesContent>
+        {filtredGames && filtredGames.map((game) => <Game key={game.fields.name} game={game} />)}
+      </GamesContent>
     </div>
   );
 };

@@ -1,12 +1,13 @@
-import { GetStaticProps } from 'next';
 import React from 'react';
+import { GetStaticProps } from 'next';
+
 import client from '../../cms';
 import { IGames, IGamesFields } from '../../contentful';
 import Game from '../components/Game/Game';
+
 import { GamesContent } from '../styles/Games';
 
 export default function Home({ games }: { games: IGames[] }) {
-  console.log(games);
   return (
     <div>
       <GamesContent>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchStyle = styled.input`
+  display: flex;
   width: 400px;
   height: 40px;
   margin-left: 300px;

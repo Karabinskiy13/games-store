@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
+import Link from 'next/link';
+
 import { Bars, Header, HumburgerIcon, List, Logo, MobileList } from '../../styles/NavBar';
 
 const NavBar = () => {

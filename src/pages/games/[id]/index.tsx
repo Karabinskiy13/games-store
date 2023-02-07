@@ -1,11 +1,20 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 
 import client from '../../../../cms';
 import { IGames, IGamesFields } from '../../../../contentful';
 import { useAppStore } from '../../../../store/store';
+
+import { Button } from '../../../styles/Games';
+import {
+  Description,
+  Platform,
+  Price,
+  PriceButton,
+  Title,
+  Wrapper
+} from '../../../styles/GameFull';
 
 type Games = {
   gamesInfo: IGames;
@@ -19,21 +28,18 @@ const GamesInfo = ({ gamesInfo }: Games) => {
   const backDropPathLink = `http://${gamesInfo.fields.backdrop?.fields.file.url}`;
   const { addToCart } = useAppStore();
   return (
-    <div
+    <Wrapper
       style={{
-        backgroundImage: `url(${backDropPathLink})`,
-        height: '100vh',
-        width: '100%',
-        backgroundRepeat: 'no-repeat'
-      }}
-      className="info">
-      <Link href="/">
-        <button className="buttonPage">Home</button>
-      </Link>
-      <div className="titlePage">{gamesInfo.fields.name}</div>
-      <div className="descriptionPage">{gamesInfo.fields.fullDescription}</div>
-      <button onClick={() => addToCart(gamesInfo)}>add to ProductCard</button>
-    </div>
+        backgroundImage: `url(${backDropPathLink})`
+      }}>
+      <Title>{gamesInfo.fields.name}</Title>
+      <Description>{gamesInfo.fields.fullDescription}</Description>
+      <Platform>Aviable in {gamesInfo.fields.platform}</Platform>
+      <PriceButton>
+        <Price>{gamesInfo.fields.price} UAH</Price>
+        <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
+      </PriceButton>
+    </Wrapper>
   );
 };
 
