@@ -5,14 +5,21 @@ import Image from 'next/image';
 import { Games } from '../../../types';
 import { Button, GameItem } from '../../styles/Games';
 
-const Game = ({ game }: Games) => {
+const Game = ({ game, showModal }: Games) => {
   const posterLink = `http://${game.fields.poster?.fields.file.url}`;
   const showDescription = `/games/${game.fields.name}`;
 
   return (
     <GameItem>
       <Link href={showDescription}>
-        <Image className="poster" src={posterLink} width={270} height={400} alt="poster" />
+        <Image
+          className="poster"
+          src={posterLink}
+          width={270}
+          height={400}
+          alt="poster"
+          onClick={() => showModal(true)}
+        />
       </Link>
       <div className="name">{game.fields.name}</div>
       <div>{game.fields.price}UAH</div>
