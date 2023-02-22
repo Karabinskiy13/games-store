@@ -22,7 +22,7 @@ const GamesCardItem = ({ game }: Games) => {
 
   const [totalQuantity, setTotalQuantity] = useState<number | undefined>(1);
 
-  const result = cart.reduce((acc, item) => acc + item.fields.price! * item.quantity!, 0);
+  const result = cart?.reduce((acc, item) => acc + item.fields.price! * item.quantity!, 0);
 
   useEffect(() => {
     setTotalQuantity(game.quantity);

@@ -43,6 +43,11 @@ export const List = styled.ul`
     transform: scale(1.1);
     transition: 0.3s;
   }
+  .dropDown:hover {
+    .items {
+      display: flex;
+    }
+  }
 `;
 
 export const MobileList = styled.ul`
@@ -95,6 +100,15 @@ export const HumburgerIcon = styled.div`
   }
 
   @media (max-width: 600px) {
-    display: block;
+    display: flex;
   }
+`;
+
+export const DropDown = styled.div`
+  display: none;
+  position: absolute;
+  justify-content: space-between;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;

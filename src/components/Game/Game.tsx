@@ -11,16 +11,14 @@ const Game = ({ game, showModal }: Games) => {
 
   return (
     <GameItem>
-      <Link href={showDescription}>
-        <Image
-          className="poster"
-          src={posterLink}
-          width={270}
-          height={400}
-          alt="poster"
-          onClick={() => showModal(true)}
-        />
-      </Link>
+      <Image
+        className="poster"
+        src={posterLink}
+        width={270}
+        height={400}
+        alt="poster"
+        onClick={() => showModal(true)}
+      />
       <div className="name">{game.fields.name}</div>
       <div>{game.fields.price}UAH</div>
       <div>Release Date: {game.fields.releaseDate}</div>

@@ -6,17 +6,18 @@ import { StyledModal } from '../../styles/ModalView';
 type Props = {
   show: boolean;
   name?: string;
+  url?: string;
   hideModal: () => void;
 };
 
-const ModalView = ({ show, name, hideModal }: Props) => {
+const ModalView = ({ show, url, name, hideModal }: Props) => {
   return (
     <Modal open={show} onClose={() => hideModal()} aria-describedby="modal-modal-picture">
       <StyledModal>
         <img
           className="modal__image"
           alt="modal__image"
-          src={name}
+          src={url}
           style={{ width: '100%', maxHeight: '800px' }}
         />
 

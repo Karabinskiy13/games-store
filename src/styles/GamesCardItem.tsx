@@ -16,7 +16,7 @@ export const CartItemWrapper = styled.div`
 `;
 
 export const Cross = styled.div`
-  max-width: 350px;
+  max-width: 400px;
   display: flex;
   justify-content: end;
 `;
@@ -56,4 +56,12 @@ export const Buttons = styled.span`
   cursor: pointer;
   color: #0052cc;
   user-select: none;
+`;
+
+export const EmptyCart = styled.div`
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

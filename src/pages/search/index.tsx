@@ -31,7 +31,10 @@ const Search = ({ games }: { games: IGames[] }) => {
     <div>
       <SearchStyle type="text" placeholder="Search" onChange={debouncedResults} />
       <GamesContent>
-        {filtredGames && filtredGames.map((game) => <Game key={game.fields.name} game={game} />)}
+        {filtredGames &&
+          filtredGames.map((game) => (
+            <Game key={game.fields.name} game={game} showModal={() => false} />
+          ))}
       </GamesContent>
     </div>
   );

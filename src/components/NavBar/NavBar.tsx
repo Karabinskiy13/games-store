@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-import { Bars, Header, HumburgerIcon, List, Logo, MobileList } from '../../styles/NavBar';
+import { Bars, DropDown, Header, HumburgerIcon, List, Logo, MobileList } from '../../styles/NavBar';
 
 const NavBar = () => {
   const [isActive, setActive] = useState(false);
@@ -18,6 +18,14 @@ const NavBar = () => {
         <List>
           <li>
             <Link href="/">Home</Link>
+          </li>
+
+          <li className="dropDown" style={{ display: 'block' }}>
+            Genres
+            <DropDown className="items">
+              <Link href="/action">Action</Link>
+              <Link href="/thriller">Thriller</Link>
+            </DropDown>
           </li>
           <li>
             <Link href="/search">Search</Link>

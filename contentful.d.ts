@@ -13,6 +13,7 @@ export interface IGamesFields {
   platform?: string | undefined;
   showFull?: string | undefined;
   backdrop?: Asset | undefined;
+  genres?: string;
 }
 
 export interface IGames extends Entry<IGamesFields> {
