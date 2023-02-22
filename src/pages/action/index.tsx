@@ -5,7 +5,7 @@ import { IGames, IGamesFields } from '../../../contentful';
 import Game from '../../components/Game/Game';
 import { GamesContent } from '../../styles/Games';
 
-const Thriller = ({ games }: { games: IGames[] }) => {
+const Action = ({ games }: { games: IGames[] }) => {
   return (
     <GamesContent>
       {games.map((game) => (
@@ -22,8 +22,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const gamesItems = games.items;
   const result = gamesItems.filter((games) => {
-    return games.fields.genres === 'Thriller';
+    return games.fields.genres === 'Action';
   });
+
+  console.log(result);
 
   return {
     props: {
@@ -32,4 +34,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Thriller;
+export default Action;
