@@ -15,7 +15,7 @@ import {
   MainWrapper
 } from '../../styles/GamesCardItem';
 
-const GamesCardItem = ({ game }: Games) => {
+const GamesCardItem = ({ game, showModal }: Games) => {
   const posterLink = `http://${game.fields.poster?.fields.file.url}`;
 
   const { cart, updateQuantity, removeFromCart } = useAppStore();
@@ -51,6 +51,7 @@ const GamesCardItem = ({ game }: Games) => {
             <Buttons onClick={() => updateQuantity(game.fields.name, 'increase')}>+</Buttons>
           </Counter>
         </div>
+        <button onClick={() => showModal(true)}>Buy</button>
       </CartItemWrapper>
     </MainWrapper>
   );

@@ -18,6 +18,8 @@ export default function Home() {
       body: JSON.stringify(data)
     });
     console.log(data);
+    console.log(data);
+    console.log(data);
   };
 
   return (
