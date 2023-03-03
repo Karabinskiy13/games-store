@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Modal } from '@mui/material';
 import { StyledModal } from '../../styles/ModalView';
+import { Adress, Button, FeedBack } from '../../styles/PurchaseModal';
 
 type Props = {
   show: boolean;
@@ -30,19 +31,16 @@ const PurchaseModal = ({ show, hideModal }: Props) => {
   };
   return (
     <Modal open={show} onClose={() => hideModal()} aria-describedby="modal-modal-picture">
-      <div>
-        <main>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input id="name" type="text" onChange={(e) => setName(e.target.value)} />
-            <label htmlFor="email">Email:</label>
-            <input id="email" type="email" onChange={(e) => setEmail(e.target.value)} />
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" onChange={(e) => setMessage(e.target.value)} />
-            <button type="submit">Send</button>
-          </form>
-        </main>
-      </div>
+      <StyledModal>
+        <form onSubmit={handleSubmit}>
+          <FeedBack placeholder="Name" type="text" onChange={(e) => setName(e.target.value)} />
+          <FeedBack placeholder="Email" type="email" onChange={(e) => setEmail(e.target.value)} />
+          <FeedBack placeholder="Adress" type="text" onChange={(e) => setMessage(e.target.value)} />
+          <Button type="submit" onClick={() => hideModal()}>
+            Send
+          </Button>
+        </form>
+      </StyledModal>
     </Modal>
   );
 };

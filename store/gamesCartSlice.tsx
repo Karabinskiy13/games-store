@@ -23,7 +23,6 @@ export const createCartSlice: StateCreator<CartSlice> = (set, get) => ({
       cart.push({ ...product, quantity: 1 });
     }
     set({ cart });
-    console.log(cart);
   },
   removeFromCart: (productName: string | undefined) => {
     set({ cart: get().cart.filter((el) => el.fields.name !== productName) });

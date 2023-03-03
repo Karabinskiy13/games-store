@@ -100,7 +100,7 @@ export const HumburgerIcon = styled.div`
   }
 
   @media (max-width: 600px) {
-    display: flex;
+    display: block;
   }
 `;
 
