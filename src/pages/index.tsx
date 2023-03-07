@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import client from '../../cms';
 import { IGames, IGamesFields } from '../../contentful';
@@ -20,6 +22,26 @@ export default function Home({ games }: { games: IGames[] }) {
   };
   return (
     <div>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={2}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}>
+        {games.map((game) => (
+          <SwiperSlide key={game.fields.name}>
+            <Game
+              game={game}
+              showModal={() =>
+                openModal(`http://${game.fields.poster?.fields.file.url}`, game.fields.name)
+              }
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <GamesContent>
         {games.map((game) => (
           <Game

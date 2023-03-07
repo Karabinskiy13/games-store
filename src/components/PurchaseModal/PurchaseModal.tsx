@@ -27,7 +27,6 @@ const PurchaseModal = ({ show, hideModal }: Props) => {
       method: 'post',
       body: JSON.stringify(data)
     });
-    console.log(data);
   };
   return (
     <Modal open={show} onClose={() => hideModal()} aria-describedby="modal-modal-picture">
