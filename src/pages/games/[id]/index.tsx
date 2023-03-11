@@ -15,6 +15,7 @@ import {
   Title,
   Wrapper
 } from '../../../styles/GameFull';
+import Comments from '../../../components/Comments/Comments';
 
 type Games = {
   gamesInfo: IGames;
@@ -39,6 +40,7 @@ const GamesInfo = ({ gamesInfo }: Games) => {
         <Price>{gamesInfo.fields.price} UAH</Price>
         <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
       </PriceButton>
+      <Comments currentPage={`${gamesInfo.fields.name}`} />
     </Wrapper>
   );
 };

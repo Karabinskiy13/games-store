@@ -11,10 +11,10 @@ export type TitleNameProps = {
 };
 
 export const TitleName = ({ pageProps }: TitleNameProps) => {
-  if (pageProps.games) {
+  if (pageProps?.games) {
     return 'GamesStore';
   }
-  if (pageProps.gamesInfo) {
+  if (pageProps?.gamesInfo) {
     return pageProps.gamesInfo.fields.name;
   }
 };
