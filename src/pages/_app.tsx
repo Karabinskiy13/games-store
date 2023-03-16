@@ -8,7 +8,8 @@ import 'swiper/css/bundle';
 import { TitleName } from '../utils';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const title = TitleName(pageProps);
+  const title = TitleName({ pageProps });
+
   return (
     <Layout>
       <Head>

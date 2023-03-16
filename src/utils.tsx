@@ -13,8 +13,7 @@ export type TitleNameProps = {
 export const TitleName = ({ pageProps }: TitleNameProps) => {
   if (pageProps?.games) {
     return 'GamesStore';
-  }
-  if (pageProps?.gamesInfo) {
+  } else if (pageProps?.gamesInfo) {
     return pageProps.gamesInfo.fields.name;
   }
 };
