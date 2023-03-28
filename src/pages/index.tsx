@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -9,17 +9,24 @@ import Game from '../components/Game/Game';
 
 import { GamesContent } from '../styles/Games';
 import ModalView from '../components/ModalView/ModalView';
+import GamesSkeleton from '../components/GamesSkeleton/GamesSkeleton';
 
 export default function Home({ games }: { games: IGames[] }) {
   const [modalStatus, setModalStatus] = useState(false);
   const [modalImage, setModalImage] = useState<string | undefined>('');
   const [modalName, setModalName] = useState<string | undefined>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const openModal = (url?: string, name?: string) => {
     setModalStatus(true);
     setModalImage(url);
     setModalName(name);
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+  });
+
   return (
     <div>
       <Swiper
@@ -42,17 +49,25 @@ export default function Home({ games }: { games: IGames[] }) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <GamesContent>
-        {games.map((game) => (
-          <Game
-            key={game.fields.name}
-            game={game}
-            showModal={() =>
-              openModal(`http://${game.fields.poster?.fields.file.url}`, game.fields.name)
-            }
-          />
-        ))}
-      </GamesContent>
+
+      {!isLoading ? (
+        <GamesContent>
+          <GamesSkeleton />
+        </GamesContent>
+      ) : (
+        <GamesContent>
+          {games.map((game) => (
+            <Game
+              key={game.fields.name}
+              game={game}
+              showModal={() =>
+                openModal(`http://${game.fields.poster?.fields.file.url}`, game.fields.name)
+              }
+            />
+          ))}
+        </GamesContent>
+      )}
+
       <ModalView
         url={modalImage}
         show={modalStatus}

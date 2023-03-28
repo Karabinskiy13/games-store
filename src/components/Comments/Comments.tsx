@@ -16,7 +16,9 @@ const Comments = ({ currentPage }: CommentsProps) => {
   return (
     <div>
       <FeedBack placeholder="Comment" type="text" onChange={(e) => setComment(e.target.value)} />
-      <Button onClick={() => addComment(comment, currentPage)}>Add</Button>
+      <Button style={{ maxWidth: '100px' }} onClick={() => addComment(comment, currentPage)}>
+        Add
+      </Button>
       <div>
         {currentComments &&
           currentComments.map((comment) => <div key={comment.id}>{comment.comment}</div>)}

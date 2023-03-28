@@ -13,6 +13,7 @@ const Search = ({ games }: { games: IGames[] }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   const debouncedResults = useMemo(() => {
