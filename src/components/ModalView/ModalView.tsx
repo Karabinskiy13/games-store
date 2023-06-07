@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Modal } from '@mui/material';
-import { StyledModal } from '../../styles/ModalView';
+import { ModalImage, StyledModal } from '../../styles';
 
 type Props = {
   show: boolean;
@@ -14,13 +14,7 @@ const ModalView = ({ show, url, name, hideModal }: Props) => {
   return (
     <Modal open={show} onClose={() => hideModal()} aria-describedby="modal-modal-picture">
       <StyledModal>
-        <img
-          className="modal__image"
-          alt="modal__image"
-          src={url}
-          style={{ width: '100%', maxHeight: '800px' }}
-        />
-
+        <ModalImage className="modal__image" alt="modal__image" src={url} />
         <div>{name}</div>
       </StyledModal>
     </Modal>

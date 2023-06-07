@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { Games } from '../../../types';
-import { Button, GameItem } from '../../styles/Games';
+import { Button, GameItem } from '../../styles';
 
 const Game = ({ game, showModal }: Games) => {
   const posterLink = `http://${game.fields.poster?.fields.file.url}`;

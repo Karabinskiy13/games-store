@@ -13,3 +13,11 @@ export const StyledModal = styled(Box)`
   box-shadow: 24;
   p: 4;
 `;
+
+export const ModalImage = styled.img`
+  width: 100%;
+  max-height: 800px;
+  @media (max-width: 500px) {
+    width: 100vw;
+  }
+`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GamesSkeletonStyle } from '../../styles/GameSkeleton';
+import { GamesSkeletonStyle } from '../../styles';
 
 const GamesSkeleton = () => {
   return (

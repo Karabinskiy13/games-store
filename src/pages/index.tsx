@@ -10,12 +10,17 @@ import Game from '../components/Game/Game';
 import { GamesContent } from '../styles/Games';
 import ModalView from '../components/ModalView/ModalView';
 import GamesSkeleton from '../components/GamesSkeleton/GamesSkeleton';
+import { useViewportDetect } from '../utils';
 
 export default function Home({ games }: { games: IGames[] }) {
   const [modalStatus, setModalStatus] = useState(false);
   const [modalImage, setModalImage] = useState<string | undefined>('');
   const [modalName, setModalName] = useState<string | undefined>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { isMobileSmall } = useViewportDetect();
+
+  const slidesPerView = isMobileSmall ? 1 : 2;
 
   const openModal = (url?: string, name?: string) => {
     setModalStatus(true);
@@ -32,12 +37,10 @@ export default function Home({ games }: { games: IGames[] }) {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
-        slidesPerView={2}
+        slidesPerView={slidesPerView}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}>
+        scrollbar={{ draggable: true }}>
         {games.map((game) => (
           <SwiperSlide key={game.fields.name}>
             <Game

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { Modal } from '@mui/material';
+import { Button, Modal } from '@mui/material';
 import { StyledModal } from '../../styles/ModalView';
-import { Adress, Button, FeedBack } from '../../styles/PurchaseModal';
+import { FeedBack } from '../../styles/PurchaseModal';
 
 type Props = {
   show: boolean;
@@ -27,6 +27,7 @@ const PurchaseModal = ({ show, hideModal }: Props) => {
       method: 'post',
       body: JSON.stringify(data)
     });
+    console.log(data);
   };
   return (
     <Modal open={show} onClose={() => hideModal()} aria-describedby="modal-modal-picture">

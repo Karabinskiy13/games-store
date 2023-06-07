@@ -13,7 +13,7 @@ import {
   Cross,
   Input,
   MainWrapper
-} from '../../styles/GamesCardItem';
+} from '../../styles';
 
 const GamesCardItem = ({ game, showModal }: Games) => {
   const posterLink = `http://${game.fields.poster?.fields.file.url}`;

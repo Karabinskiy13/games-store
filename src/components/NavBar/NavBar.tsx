@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-
-import { Bars, DropDown, Header, HumburgerIcon, List, Logo, MobileList } from '../../styles/NavBar';
+import { List } from '@mui/material';
+import { Header, Logo, DropDown, HumburgerIcon, Bars, MobileList } from '../../styles';
 
 const NavBar = () => {
   const [isActive, setActive] = useState(false);

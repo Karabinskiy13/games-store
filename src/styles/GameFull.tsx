@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
 
 export const Title = styled.div`
   font-size: 50px;
+  @media (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const Description = styled.div`

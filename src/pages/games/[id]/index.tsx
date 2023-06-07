@@ -16,6 +16,8 @@ import {
   Wrapper
 } from '../../../styles/GameFull';
 import Comments from '../../../components/Comments/Comments';
+import { useViewportDetect } from '../../../utils';
+import Image from 'next/image';
 
 type Games = {
   gamesInfo: IGames;
@@ -28,20 +30,43 @@ interface Params extends ParsedUrlQuery {
 const GamesInfo = ({ gamesInfo }: Games) => {
   const backDropPathLink = `http://${gamesInfo.fields.backdrop?.fields.file.url}`;
   const { addToCart } = useAppStore();
+  const { isMobileSmall } = useViewportDetect();
   return (
-    <Wrapper
-      style={{
-        backgroundImage: `url(${backDropPathLink})`
-      }}>
-      <Title>{gamesInfo.fields.name}</Title>
-      <Description>{gamesInfo.fields.fullDescription}</Description>
-      <Platform>Aviable in {gamesInfo.fields.platform}</Platform>
-      <PriceButton>
-        <Price>{gamesInfo.fields.price} UAH</Price>
-        <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
-      </PriceButton>
-      <Comments currentPage={`${gamesInfo.fields.name}`} />
-    </Wrapper>
+    <div>
+      {!isMobileSmall ? (
+        <Wrapper
+          style={{
+            backgroundImage: `url(${backDropPathLink})`
+          }}>
+          <Title>{gamesInfo.fields.name}</Title>
+          <Description>{gamesInfo.fields.fullDescription}</Description>
+          <Platform>Aviable in {gamesInfo.fields.platform}</Platform>
+          <PriceButton>
+            <Price>{gamesInfo.fields.price} UAH</Price>
+            <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
+          </PriceButton>
+          <Comments currentPage={`${gamesInfo.fields.name}`} />
+        </Wrapper>
+      ) : (
+        <div>
+          <Image
+            style={{ width: '100%' }}
+            src={backDropPathLink}
+            alt={'poster'}
+            width={300}
+            height={300}
+          />
+          <Title>{gamesInfo.fields.name}</Title>
+          <Description>{gamesInfo.fields.fullDescription}</Description>
+          <Platform>Aviable in {gamesInfo.fields.platform}</Platform>
+          <PriceButton>
+            <Price>{gamesInfo.fields.price} UAH</Price>
+            <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
+          </PriceButton>
+          <Comments currentPage={`${gamesInfo.fields.name}`} />
+        </div>
+      )}
+    </div>
   );
 };
 
