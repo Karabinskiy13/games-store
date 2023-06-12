@@ -35,6 +35,7 @@ const GamesInfo = ({ gamesInfo }: Games) => {
     <div>
       {!isMobileSmall ? (
         <Wrapper
+          data-testId="wrapper"
           style={{
             backgroundImage: `url(${backDropPathLink})`
           }}>
@@ -42,7 +43,7 @@ const GamesInfo = ({ gamesInfo }: Games) => {
           <Description>{gamesInfo.fields.fullDescription}</Description>
           <Platform>Aviable in {gamesInfo.fields.platform}</Platform>
           <PriceButton>
-            <Price>{gamesInfo.fields.price} UAH</Price>
+            <Price data-testId="price">{gamesInfo.fields.price} UAH</Price>
             <Button onClick={() => addToCart(gamesInfo)}>ADD TO CART</Button>
           </PriceButton>
           <Comments currentPage={`${gamesInfo.fields.name}`} />

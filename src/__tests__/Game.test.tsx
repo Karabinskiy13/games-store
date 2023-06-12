@@ -2,11 +2,10 @@ import React from 'react';
 import { jest } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IGames, IGamesFields } from '../../contentful';
+import { IGames } from '../../contentful';
 import Game from '../components/Game/Game';
-import { Entry } from 'contentful';
 
-const singleGame: IGames = {
+const singleGame: any = {
   id: 1,
   quantity: 10,
   prevState: null,
@@ -34,7 +33,7 @@ const singleGame: IGames = {
   }
 };
 
-describe('<SinglePicture>', () => {
+describe('<Game>', () => {
   test('Should render component', () => {
     const { asFragment } = render(<Game game={singleGame} showModal={jest.fn()} />);
     expect(asFragment()).toMatchSnapshot();
@@ -51,6 +50,33 @@ describe('<SinglePicture>', () => {
   test('Should display image from props', async () => {
     render(<Game game={singleGame} showModal={jest.fn()} />);
     await screen.findAllByAltText('poster');
-    expect(screen.getByAltText('poster')).toHaveAttribute('src', '/image.png');
+    expect(screen.getByAltText('poster')).toHaveAttribute(
+      'src',
+      '/_next/image?url=http%3A%2F%2Fundefined&w=640&q=75'
+    );
+  });
+
+  test('Should render title of game', async () => {
+    render(<Game game={singleGame} showModal={jest.fn()} />);
+    await screen.findByText('name');
+    expect(screen.getByText('name')).toBeInTheDocument();
+  });
+
+  test('Should render price of game', async () => {
+    render(<Game game={singleGame} showModal={jest.fn()} />);
+    await screen.findByTestId('price');
+    expect(screen.getByTestId('price')).toBeInTheDocument();
+  });
+
+  test('Should render release date of game', async () => {
+    render(<Game game={singleGame} showModal={jest.fn()} />);
+    await screen.findByTestId('releaseDate');
+    expect(screen.getByTestId('releaseDate')).toBeInTheDocument();
+  });
+
+  test('Should render button for show full info of game', async () => {
+    render(<Game game={singleGame} showModal={jest.fn()} />);
+    await screen.findByTestId('button');
+    expect(screen.getByTestId('button')).toBeInTheDocument();
   });
 });

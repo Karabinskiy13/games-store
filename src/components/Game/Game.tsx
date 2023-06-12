@@ -17,13 +17,16 @@ const Game = ({ game, showModal }: Games) => {
         width={270}
         height={400}
         alt="poster"
+        data-testId="poster"
         onClick={() => showModal(true)}
       />
       <div className="name">{game.fields.name}</div>
-      <div>{game.fields.price}UAH</div>
-      <div>Release Date: {game.fields.releaseDate}</div>
+      <div data-testId="price">{game.fields.price}UAH</div>
+      <div data-testId="releaseDate">Release Date: {game.fields.releaseDate}</div>
       <Link href={showDescription}>
-        <Button className="button">{game.fields.showFull}</Button>
+        <Button data-testId="button" className="button">
+          {game.fields.showFull}
+        </Button>
       </Link>
     </GameItem>
   );

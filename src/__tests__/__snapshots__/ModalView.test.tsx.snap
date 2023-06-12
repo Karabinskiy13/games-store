@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SinglePicture> Should render component 1`] = `<DocumentFragment />`;

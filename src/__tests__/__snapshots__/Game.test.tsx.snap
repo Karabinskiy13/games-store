@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SinglePicture> Should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="Games__GameItem-sc-itkhej-2 fhPXZl"
+  >
+    <img
+      alt="poster"
+      class="poster"
+      data-nimg="1"
+      data-testid="poster"
+      decoding="async"
+      height="400"
+      loading="lazy"
+      src="/_next/image?url=http%3A%2F%2Fundefined&w=640&q=75"
+      srcset="/_next/image?url=http%3A%2F%2Fundefined&w=384&q=75 1x, /_next/image?url=http%3A%2F%2Fundefined&w=640&q=75 2x"
+      style="color: transparent;"
+      width="270"
+    />
+    <div
+      class="name"
+    >
+      name
+    </div>
+    <div
+      data-testid="price"
+    >
+      100UAH
+    </div>
+    <div>
+      Release Date: 2020
+    </div>
+    <button
+      class="Games__Button-sc-itkhej-1 kRtork button"
+    />
+  </div>
+</DocumentFragment>
+`;
